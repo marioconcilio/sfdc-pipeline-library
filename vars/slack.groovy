@@ -68,7 +68,7 @@ def notifySlack(String status, String message) {
 
     def msg = "${gitAuthor}: Build #${env.BUILD_NUMBER} ${status} on ${env.BRANCH_NAME}"
     def jenkinsUrl = "${BLUE_OCEAN_URL}${env.BRANCH_NAME}/${env.BUILD_NUMBER}"
-    def bitbucketUrl = "${env.REPO_URL}${gitHash}"
+    def repoUrl = "${env.REPO_URL}${gitHash}"
 
     def attachments = """[{
     "fallback": "${msg}",
@@ -114,13 +114,13 @@ def notifySlack(String status, String message) {
         },
         {
             "type": "button",
-            "text": "See commit on Bitbucket",
-            "url": "${bitbucketUrl}"
+            "text": "See commit on GitHub",
+            "url": "${repoUrl}"
         }
     ]
 }]"""
 
-    def channel = env.SLACK_MSG_CHANNEL? env.SLACK_MSG_CHANNEL : '#salesforce_ci'
+    def channel = env.SLACK_MSG_CHANNEL? env.SLACK_MSG_CHANNEL : '#salesforce-ci'
     slackSend channel: channel, attachments: attachments
 }
 
