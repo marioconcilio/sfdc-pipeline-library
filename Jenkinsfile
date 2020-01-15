@@ -9,4 +9,26 @@ pipeline {
             }
         }
     }
+    post {
+        success {
+            script {
+                slack.notifySuccess()
+            }
+        }
+        failure {
+            script {
+                slack.notifyFailure()
+            }
+        }
+        unstable {
+            script {
+                slack.notifyUnstable()
+            }
+        }
+        aborted {
+            script {
+                slack.notifyAborted()
+            }
+        }
+    }
 }
