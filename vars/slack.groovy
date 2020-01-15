@@ -31,19 +31,19 @@ def notifySlack(String status, String message) {
             color = '#D4DADF'
             break
         case 'Successful':
-            color = '#BDFFC3'
+            color = '#2EB67D'
             break
         case 'Failed':
-            color = '#FF9FA1'
+            color = '#E01E5A'
             break
         case 'Unstable':
-            color = '#FFFE89'
+            color = '#ECB22E'
             break
         case 'Aborted':
-            color = '#D4DADF'
+            color = '#4A154B'
             break
         default:
-            color = '#FF9FA1'
+            color = '#E01E5A'
     }
 
     def gitAuthor = sh(
