@@ -8,7 +8,10 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'echo Hello world!'
+                script {
+                    slack.notifyStarted()
+                    sh 'echo Hello world!'
+                }
             }
         }
     }
