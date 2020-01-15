@@ -23,7 +23,7 @@ def notifyAborted() {
 }
 
 def notifySlack(String status, String message) {
-    if (env.BRANCH_NAME != 'develop' && env.BRANCH_NAME != 'uat' && env.BRANCH_NAME != 'master') return
+    // if (env.BRANCH_NAME != 'develop' && env.BRANCH_NAME != 'uat' && env.BRANCH_NAME != 'master') return
 
     def color
     switch(status) {
