@@ -2,6 +2,9 @@ pipeline {
     agent { 
         docker { image 'salestrip/sfdx-cli' } 
     }
+    environment {
+        REPO_URL = "https://github.com/marioconcilio/sfdc/commit/"
+    }
     stages {
         stage('build') {
             steps {
