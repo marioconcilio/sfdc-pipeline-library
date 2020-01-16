@@ -1,6 +1,6 @@
 import groovy.transform.Field
 
-@Field String BLUE_OCEAN_URL = 'http://ec2-18-221-129-121.us-east-2.compute.amazonaws.com:8080/blue/organizations/jenkins/sfdc/detail/'
+@Field String BLUE_OCEAN_URL = 'http://ec2-3-16-40-212.us-east-2.compute.amazonaws.com:8080/blue/organizations/jenkins/sfdc/detail/'
 
 def notifyStarted() {
     notifySlack('Pending', 'Build started')
@@ -23,8 +23,6 @@ def notifyAborted() {
 }
 
 def notifySlack(String status, String message) {
-    // if (env.BRANCH_NAME != 'develop' && env.BRANCH_NAME != 'uat' && env.BRANCH_NAME != 'master') return
-
     def color
     switch(status) {
         case 'Pending':
