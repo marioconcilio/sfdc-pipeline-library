@@ -1,5 +1,6 @@
 import groovy.transform.Field
 
+@Field String REPO_URL = "https://github.com/marioconcilio/sfdc/commit/"
 @Field String BLUE_OCEAN_URL = 'http://ec2-3-16-40-212.us-east-2.compute.amazonaws.com:8080/blue/organizations/jenkins/sfdc/detail/'
 
 def notifyStarted() {
@@ -66,7 +67,7 @@ def notifySlack(String status, String message) {
 
     def msg = "${gitAuthor}: Build #${env.BUILD_NUMBER} ${status} on ${env.BRANCH_NAME}"
     def jenkinsUrl = "${BLUE_OCEAN_URL}${env.BRANCH_NAME}/${env.BUILD_NUMBER}"
-    def repoUrl = "${env.REPO_URL}${gitHash}"
+    def repoUrl = "${REPO_URL}${gitHash}"
 
     def attachments = """[{
     "fallback": "${msg}",
